@@ -8,6 +8,9 @@ public class College {
         student.setFullName("Domarin Konstantin Alekseevich");
         student.setGroup(2);
         student.setAdmission(new Date());
-        System.out.println(student.getFullName() + " joined group " + student.getGroup() + " at " + student.getAdmission());
+        System.out.println(student.getFullName()
+                + " joined group "
+                + student.getGroup() + " at "
+                + student.getAdmission());
     }
 }
