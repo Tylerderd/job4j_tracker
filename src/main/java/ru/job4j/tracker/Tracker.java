@@ -61,9 +61,6 @@ public class Tracker {
             }
         }
         itemNames = Arrays.copyOf(itemNames, size);
-        for (int i = 0; i < itemNames.length; i++) {
-            System.out.println(itemNames[i]);
-        }
         return itemNames;
     }
 }
