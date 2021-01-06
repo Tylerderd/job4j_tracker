@@ -5,8 +5,9 @@ public class StartUI extends Item {
         Tracker tracker = new Tracker();
         tracker.add(new Item("Kik"));
         tracker.add(new Item("Bomb"));
-        System.out.println(tracker.replace(1, new Item("Koks")));
-        System.out.println(tracker.findById(1).getName());
-
+        tracker.add(new Item("Bottle"));
+        tracker.add(new Item("Car"));
+        tracker.add(new Item("Skiff"));
+        System.out.println(tracker.delete(4));
     }
 }
