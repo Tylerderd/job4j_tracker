@@ -7,6 +7,8 @@ public class StartUI extends Item {
         tracker.add(new Item("Bocha"));
         System.out.println(tracker.findById(1).getName());
         System.out.println(tracker.replace(1, new Item("Koks")));
+        System.out.println(tracker.replace(2, new Item("Viva")));
         System.out.println(tracker.findById(1).getName());
+        System.out.println(tracker.findById(2).getId());
     }
 }
