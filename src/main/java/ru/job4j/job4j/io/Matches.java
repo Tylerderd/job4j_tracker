@@ -8,8 +8,9 @@ public class Matches {
         int remainSticks = 11;
         int count = 2;
         boolean res = true;
+        String switcher = "defaultPlayer";
         while (res) {
-            String switcher = count % 2 == 0 ? "User1" : "User2";
+           switcher = count % 2 == 0 ? "player1" : "player2";
             System.out.println("There are " + remainSticks
                     + " sticks remained. ");
             System.out.println(switcher + ", take 1, 2 or 3 stick, please: ");
@@ -21,13 +22,12 @@ public class Matches {
                 }
                 if (remainSticks <= 0) {
                     res = false;
-                    System.out.println(switcher + " won game");
                 }
                 count++;
             } else {
                 System.out.println("wrong input, you can pass only 1,2 or 3");
             }
         }
-
+        System.out.println(switcher + " won game");
     }
 }
