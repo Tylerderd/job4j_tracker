@@ -7,7 +7,6 @@ public class Matches {
         Scanner input = new Scanner(System.in);
         int remainSticks = 11;
         int count = 2;
-
         boolean res = true;
         while (res) {
             String switcher = count % 2 == 0 ? "User1" : "User2";
@@ -15,16 +14,20 @@ public class Matches {
                     + " sticks remained. ");
             System.out.println(switcher + ", take 1, 2 or 3 stick, please: ");
             int number = Integer.parseInt(input.nextLine());
-            remainSticks -= number;
-            if (remainSticks > 0) {
-                System.out.println(switcher + " took " + number + " sticks");
-
+            if (number > 0 && number < 4) {
+                remainSticks -= number;
+                if (remainSticks > 0) {
+                    System.out.println(switcher + " took " + number + " sticks");
+                }
+                if (remainSticks <= 0) {
+                    res = false;
+                    System.out.println(switcher + " won game");
+                }
+                count++;
+            } else {
+                System.out.println("wrong input, you can pass only 1,2 or 3");
             }
-            if (remainSticks <= 0) {
-                System.out.println(switcher + " won game");
-                res = false;
-            }
-            count++;
         }
+
     }
 }
