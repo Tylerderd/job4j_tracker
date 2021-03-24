@@ -8,7 +8,7 @@ public class Matches {
         int remainSticks = 11;
         int count = 2;
         boolean res = true;
-        String switcher = "defaultPlayer";
+        String switcher = "";
         while (res) {
            switcher = count % 2 == 0 ? "player1" : "player2";
             System.out.println("There are " + remainSticks
