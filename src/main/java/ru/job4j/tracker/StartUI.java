@@ -20,7 +20,10 @@ public class StartUI {
                     System.out.println("Item was added");
                 } else if (select == 1) {
                     System.out.println("=== All your item in items: ===");
-                    System.out.println(Arrays.toString(tracker.findAll()));
+                    Item[] items = tracker.findAll();
+                    for (Item item : items) {
+                        System.out.println(item.toString());
+                    }
                 } else if (select == 2) {
                     System.out.println("=== Edit item ===");
                     System.out.println("Enter item id where you want to change name:");
@@ -32,7 +35,7 @@ public class StartUI {
                     if (!res) {
                         System.out.println("Enter correct id to replace name");
                     } else {
-                        System.out.println("Item name was replaced");
+                          System.out.println("Item name was replaced");
                     }
                 } else if (select == 3) {
                     System.out.println("=== Delete item ===");
@@ -50,8 +53,7 @@ public class StartUI {
                     int itemId = Integer.valueOf(scanner.nextLine());
                     Item item = tracker.findById(itemId);
                     if (item != null) {
-                        System.out.println("Item name: " + item.getName()
-                                + " Item id " + item.getId());
+                       item.toString();
                     } else {
                         System.out.println("Item with this id wasn't found");
                     }
@@ -61,16 +63,17 @@ public class StartUI {
                     String name = scanner.nextLine();
                     Item[] items = tracker.findByName(name);
                     if (items.length > 0) {
-                        System.out.println(Arrays.toString(items));
+                        for (Item item : items) {
+                            System.out.println(item.toString());
+                        }
                     } else {
                         System.out.println("Items with this name wasn't found");
                     }
-                } else if (select == 6) {
+                } else {
                     run = false;
                     System.out.println("You're exit menu");
                 }
             }
-
         }
     }
 
