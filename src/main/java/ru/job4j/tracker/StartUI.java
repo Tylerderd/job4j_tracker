@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class StartUI {
@@ -53,7 +52,7 @@ public class StartUI {
                     int itemId = Integer.valueOf(scanner.nextLine());
                     Item item = tracker.findById(itemId);
                     if (item != null) {
-                       item.toString();
+                        System.out.println(item.toString());
                     } else {
                         System.out.println("Item with this id wasn't found");
                     }
