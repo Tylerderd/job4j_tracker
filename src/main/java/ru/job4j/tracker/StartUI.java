@@ -11,36 +11,15 @@ public class StartUI {
                 if (select == 0) {
                     StartUI.createItem(input, tracker);
                 } else if (select == 1) {
-                    System.out.println("=== All your item in items: ===");
-                    Item[] items = tracker.findAll();
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
+                    showAllItems(tracker);
                 } else if (select == 2) {
                     StartUI.replaceItem(input, tracker);
                 } else if (select == 3) {
                     StartUI.deleteItem(input, tracker);
                 } else if (select == 4) {
-                    System.out.println("=== Find item by id ===");
-                    int itemId = input.askInt("Enter item id you want to find:");
-                    Item item = tracker.findById(itemId);
-                    if (item != null) {
-                        System.out.println(item);
-                    } else {
-                        System.out.println("Item with this id wasn't found");
-                    }
+                    findById(input, tracker);
                 } else if (select == 5) {
-                    System.out.println("=== Find item by name ===");
-                    System.out.println("Enter item name you want to find:");
-                    String name = input.askStr("Enter item name you want to find:");
-                    Item[] items = tracker.findByName(name);
-                    if (items.length > 0) {
-                        for (Item item : items) {
-                            System.out.println(item);
-                        }
-                    } else {
-                        System.out.println("Items with this name wasn't found");
-                    }
+                   findByName(input, tracker);
                 } else {
                     run = false;
                     System.out.println("You're exit menu");
@@ -60,6 +39,38 @@ public class StartUI {
         System.out.println("6. Exit Program.");
         System.out.println("Select: ");
         System.out.println();
+    }
+
+    public  static void showAllItems(Tracker tracker) {
+        System.out.println("=== All your item in items: ===");
+        Item[] items = tracker.findAll();
+        for (Item item : items) {
+            System.out.println(item);
+        }
+    }
+
+    public static void findByName(Input input, Tracker tracker) {
+        System.out.println("=== Find item by name ===");
+        String name = input.askStr("Enter item name you want to find:");
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Items with this name wasn't found");
+        }
+    }
+
+    public static void findById(Input input, Tracker tracker) {
+        System.out.println("=== Find item by id ===");
+        int itemId = input.askInt("Enter item id you want to find:");
+        Item item = tracker.findById(itemId);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Item with this id wasn't found");
+        }
     }
 
     public static void createItem(Input input, Tracker tracker) {
