@@ -32,14 +32,19 @@ public class StartUITest {
         assertThat(replaced.getName(), is("replaced item"));
     }
 
-    @Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("item to delete");
-        tracker.add(item);
-        int id = item.getId();
-        tracker.delete(id);
-        assertThat(tracker.findById(id), is(nullValue()));
-    }
-
+@Test
+public void whenDeleteItem() {
+    Tracker tracker = new Tracker();
+    Item item = new Item("new item");
+    tracker.add(item);
+    String[] answer = {
+            String.valueOf(item.getId()), item.getName()
+    };
+    StartUI.deleteItem(new StubInput(answer), tracker);
+    System.out.println(item.getId());
+    System.out.println(item.getName());
+    Item deleted = tracker.findById(item.getId());
+    System.out.println(deleted);
+    assertThat(deleted, is(nullValue()));
+}
 }
