@@ -61,10 +61,10 @@ public class StartUITest {
         Output output = new ConsoleOutput();
         Item item = tracker.add(new Item("Item"));
         Input in = new StubInput(
-                new String[]{"0", String.valueOf(item.getId()), item.getName(), "1"}
+                new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new ShowAction(output),
+                new FindIdAction(output),
                 new Exit(output)
         };
         new StartUI(output).init(in, tracker, actions);
